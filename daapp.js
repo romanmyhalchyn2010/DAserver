@@ -1,17 +1,16 @@
 const express = require('express')
+const path = require('path')
 const port = 3000
 const app = express()
 
 app.use(express.static('public'))
-app.get('/', (req, res) => {
-  res.send('Hello, World! This is my first server.');
-});
+
 app.get('/about', (req, res) => {
-  res.send('This is the about page. I built this server myself!');
+  res.sendFile(path.join(__dirname, 'public', 'about.html'));
 });
 
 app.get('/contact', (req, res) => {
-  res.send('Contact me at: hello@mysite.com');
+  res.sendFile(path.join(__dirname, 'public', 'contact.html'));
 });
 app.get('/api/time', (req, res) => {
   res.json({
