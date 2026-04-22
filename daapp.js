@@ -1,8 +1,7 @@
 const express = require('express')
-const port = 3001
+const port = 3000
 const app = express()
-const cors = require('cors');
-app.use(cors()); // Add this before your routes
+
 app.use(express.static('public'))
 app.get('/', (req, res) => {
   res.send('Hello, World! This is my first server.');
@@ -28,10 +27,3 @@ app.get('/api/greet', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
-
-const express = require('express');
-const cors = require('cors'); // 1. Import it
-const app = express();
-
-app.use(cors()); // 2. Enable it for all routes
-// ... the rest of your routes
